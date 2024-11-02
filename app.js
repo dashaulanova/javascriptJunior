@@ -32,5 +32,33 @@ const daysUntilDeadline = 11;
 const projectHours = 40;
 
 //Вывод
-console.log('Стоимость заказа' + canculateCost(rate, projectHours));
-console.log('Смогу ли взять заказ?' +  isPosible(daysUntilDeadline, projectHours, workingHoursPerDay));
+console.log('Стоимость заказа ' + canculateCost(rate, projectHours));
+console.log('Смогу ли взять заказ? ' +  isPosible(daysUntilDeadline, projectHours, workingHoursPerDay));
+
+
+//Задача 
+/*Вася положил 12 000$ на вклад 7% годовых 
+с капитализацией 1 раз в месяц.
+Вывести в консоль, сможет ли он купить дом за 13 500$ через 2 года
+после снятия вклада. И остаток после покупки. 
+
+Итог = сумма * (1 + ставка в месяц) ^ срок в месяцах.*/
+
+
+//решение
+function calculateDeposit(contributionUSD, annualRate, months) {
+    const deposit = contributionUSD * (1 + annualRate/100/12) ** months;
+    return deposit;
+}
+
+function isAvailableToBuy(cost, contributionUSD, annualRate, months ) {
+    const deposit = calculateDeposit(contributionUSD, annualRate, months);
+    const balance = deposit - cost;
+    if (balance >= 0) {
+        return `Вася сможет купить дом, остаток после покупки - ${parseInt(balance)}$`;
+    } else {
+        return `Вася не сможет купить дом`
+    }
+}
+//вывод
+console.log(isAvailableToBuy(13500, 12000, 7, 24));
