@@ -53,9 +53,9 @@ function calculateDeposit(contributionUSD, annualRate, months) {
 
 function isAvailableToBuy(cost, contributionUSD, annualRate, months ) {
     const deposit = calculateDeposit(contributionUSD, annualRate, months);
-    const balance = deposit - cost;
-    if (balance >= 0) {
-        return `Вася сможет купить дом, остаток после покупки - ${parseInt(balance)}$`;
+    const balanceAfter = deposit - cost;
+    if (balanceAfter >= 0) {
+        return `Вася сможет купить дом, остаток после покупки - ${parseInt(balanceAfter)}$`;
     } else {
         return `Вася не сможет купить дом`
     }
@@ -84,3 +84,37 @@ function isHuman() {
 }
 
 isHuman();
+
+//Упражнение Проверка прав
+//Пользователь хочет приобрести игру в магазине.
+//Он сможет это сделать только если:
+/*
+    - его баланс больше 1000 (balance) 
+    или число бонусов больше 100 (bonusBalance);
+    - он не забанен;
+    - игра не куплена(isExist);
+    - игра в продаже;
+    Напишите условие для покупки и выведите результат в консоль. 
+*/
+
+
+function checkRights(balance, bonusBalance, isBanned, isExist, isSelling) {
+    if ((balance > 1000 || bonusBalance > 100)
+        && !isBanned
+        && !isExist
+        && isSelling) {
+            return true
+        } else {
+           return false
+        }
+}
+
+//Данные
+
+const balance = 800;
+const bonusBalance = 110;
+const isBanned = false;
+const isExist = false;
+const isSelling = true;
+
+console.log(checkRights(balance, bonusBalance, isBanned, isExist, isSelling));
