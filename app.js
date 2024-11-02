@@ -62,3 +62,25 @@ function isAvailableToBuy(cost, contributionUSD, annualRate, months ) {
 }
 //вывод
 console.log(isAvailableToBuy(13500, 12000, 7, 24));
+
+
+//Упражнение - проверка робота
+//Методом prompt получите ответ пользователя на вопрос "Сколько будет 7 + или -15?".
+//Если ответ верен - выдедите в консоле "Успех", если нет - " Вы робот!", а если он
+//введет "Я не робот", то тоже "Успех". 
+
+function isHuman() {
+    const answer = prompt('Сколько будет 7 + или -15?');
+    switch (answer.trim().toLowerCase().split(' ').join('')) {
+        case '22': 
+        case '-8':
+        case 'я не робот':
+            console.log('Успех');
+            return true;
+        default:
+            console.log('Вы робот!');
+            return false;
+    }
+}
+
+isHuman();
