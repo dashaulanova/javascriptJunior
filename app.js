@@ -118,3 +118,36 @@ const isExist = false;
 const isSelling = true;
 
 console.log(checkRights(balance, bonusBalance, isBanned, isExist, isSelling));
+
+//Задача - Кредит на макбук
+/*
+Пользователь:
+- возраст
+- наличие работы
+- деньги
+ Нужно проверить может ли он купить новый макбук за 2000$.
+ Он может брать не только свои деньги, но и взять кредит.
+ ему дадут 500$, только если ему больше 24-х лет и он имеет работу,
+ 100$ если ему просто больше 24-х лет и 0 в ином случае.
+ Напишите функцию, которая принимает данные пользователя и товара и 
+ возвращает true или false.
+ */
+
+//решение
+function canBuy(age, cash,  hasAJob = false, cost = 2000) {
+    const credit = (age > 24) ? hasAJob ? 500 : 100 : 0;
+    if (cash + credit >= cost) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+//данные
+const age = 25;
+const hasAJob = true;
+const cash = 1500;
+const cost = 2000;
+
+//вывод
+console.log(canBuy(age, cash, hasAJob));
