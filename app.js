@@ -175,10 +175,9 @@ console.log(canBuy(age, cash, hasAJob));
  }
 
  function makeUrgent(urgentTask, tasks) {
-    if (tasks.indexOf(urgentTask) === -1) {
+    if (!deleteTaskbyName(urgentTask, tasks)) {
         return;
     }
-    tasks.splice(tasks.indexOf(urgentTask), 1);
     return tasks.unshift(urgentTask);
  }
 
