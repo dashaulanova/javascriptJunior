@@ -151,3 +151,53 @@ const cost = 2000;
 
 //вывод
 console.log(canBuy(age, cash, hasAJob));
+
+//Упражнение - Обновление списка задач(упражнение на работу с массивами)
+/*
+    Дан список задач
+    const tasks = ['Задача1'];
+    Сделать функции:
+        - добавление задачи в конец;
+        - удаление задачи по названию;
+        - перенос задачи в начало списка по названию.
+    Всегда меняем исходный массив. 
+*/
+
+ function addTask(newTask, tasks) {
+    return tasks.push(newTask);
+ }
+
+ function deleteTaskbyName(task, tasks) {
+    if (tasks.indexOf(task) === -1) {
+        return;
+    }
+    return tasks.splice(tasks.indexOf(task), 1);
+ }
+
+ function makeUrgent(urgentTask, tasks) {
+    if (tasks.indexOf(urgentTask) === -1) {
+        return;
+    }
+    tasks.splice(tasks.indexOf(urgentTask), 1);
+    return tasks.unshift(urgentTask);
+ }
+
+ //данные
+ const tasks = ['Задача1'];
+
+ //вывод
+ addTask('Задача2', tasks);
+ console.log(tasks);
+ deleteTaskbyName('Задача4', tasks);
+ console.log(tasks);
+ addTask('Задача3', tasks);
+ addTask('Задача4', tasks);
+ console.log(tasks);
+ makeUrgent('Задача4', tasks);
+ console.log(tasks);
+ makeUrgent('Задача5', tasks);
+ console.log(tasks);
+
+
+
+
