@@ -197,6 +197,20 @@ console.log(canBuy(age, cash, hasAJob));
  makeUrgent('Задача5', tasks);
  console.log(tasks);
 
+//Нужно сделать функцию, которая принимает url и выводит в консоль:
+/*
+    - протокол;
+    - доменное имя;
+    - путь внутри сайта;
+*/
 
+function destructuringURL(url) {
+    const [protocol, rest] = url.split('://');
+    const [domaim, ...path] = rest? rest.split('/'): protocol.split('/');
+    console.log(`Протокол: ${rest? protocol : ''}`);
+    console.log('Доменное имя:' + domaim);
+    console.log('Путь внутри сайта:' + '/' + path.join('/'));
+}
 
+destructuringURL('chelyabinsk.t2.ru');
 
