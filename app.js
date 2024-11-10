@@ -214,3 +214,17 @@ function destructuringURL(url) {
 
 destructuringURL('chelyabinsk.t2.ru');
 
+
+//Упражнение - цикл в обратном порядке, е использую reverse (отработка циклов)
+
+const arr = ['!', 'JS', 'люблю', 'Я'];
+
+function reverseArray(arr) {
+    let str = '';
+    for(let i = arr.length - 1; i >= 0; i--) {
+        str += arr[i] + ' ';
+    }
+    console.log(str);
+}
+
+reverseArray(arr);
